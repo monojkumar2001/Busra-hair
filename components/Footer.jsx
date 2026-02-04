@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Facebook, Youtube } from 'lucide-react';
 
 const TikTokIcon = () => (
@@ -10,7 +11,7 @@ const Footer = () => (
   <footer className="bg-gray-900 text-white py-10 sm:py-12 border-t border-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-6">
-        <img src="/images/logo.png" alt="Busra Organic" className="h-10 sm:h-12 w-auto object-contain" />
+        <Image src="/images/logo.png" alt="Busra Organic" width={120} height={48} className="h-10 sm:h-12 w-auto object-contain" />
         <span className="text-xl sm:text-2xl font-bold tracking-tight text-center">Busra Organic Hair Oil</span>
       </div>
       <p className="text-gray-400 max-w-xl mx-auto mb-6 text-sm sm:text-base px-2">

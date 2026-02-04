@@ -1,7 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Droplets, ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +33,7 @@ const Navbar = () => {
         <div className="flex justify-between h-14 sm:h-16 md:h-20 items-center">
           <a href="/" className="flex items-center gap-1 sm:gap-2 group min-w-0">
             <div className="group-hover:scale-105 transition-transform flex-shrink-0">
-            <img src="/images/logo.png" alt="Busra Organic Hair Oil" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain" />
+            <Image src="/images/logo.png" alt="Busra Organic Hair Oil" width={80} height={80} className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain" />
             </div>
           </a>
 

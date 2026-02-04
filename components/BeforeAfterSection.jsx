@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const BeforeAfterSection = () => (
   <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,11 +11,13 @@ const BeforeAfterSection = () => (
           Busra Organic ব্যবহারে আসল পরিবর্তন – Before & After
         </p>
       </div>
-      <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-4xl mx-auto">
-        <img
+      <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-4xl mx-auto relative aspect-[4/3]">
+        <Image
           src="/images/product-2.png"
           alt="Busra Organic হেয়ার কেয়ার ব্যবহারের আগে ও পরে – চুলের পরিবর্তনের প্রমাণ"
-          className="w-full h-auto object-contain"
+          fill
+          className="object-contain"
+          sizes="(max-width: 896px) 100vw, 896px"
         />
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Leaf, CheckCircle, Star, Truck } from 'lucide-react';
 
 const WhyChooseUs = () => (
@@ -32,12 +33,14 @@ const WhyChooseUs = () => (
         </div>
 
         <div className=" md:flex justify-center items-center">
-          <div className="relative">
+          <div className="relative w-full max-w-sm aspect-[3/4]">
             <div className="absolute -inset-10 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <img
+            <Image
               src="/images/product-1.png"
               alt="Busra Hair Oil Product"
-              className="rounded-3xl shadow-2xl relative z-10 border-4 border-green-800 max-h-[500px] object-cover"
+              fill
+              className="rounded-3xl shadow-2xl relative z-10 border-4 border-green-800 object-cover"
+              sizes="(max-width: 384px) 100vw, 384px"
             />
           </div>
         </div>

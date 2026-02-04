@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ShieldCheck, ArrowRight, Leaf, Droplets } from 'lucide-react';
 
 const Hero = () => {
@@ -42,11 +43,13 @@ const Hero = () => {
           <div className="flex-1 w-full max-w-lg mx-auto lg:max-w-none order-1 lg:order-2">
             <div className="relative">
               <div className="absolute -inset-4 bg-green-200/30 rounded-3xl blur-2xl -z-10"></div>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80">
-                <img
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[3/4]">
+                <Image
                   src="/images/product-1.png"
                   alt="Busra Organic Hair Oil - প্রাকৃতিক হেয়ার অয়েল"
-                  className="w-full h-auto object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 512px"
                 />
               </div>
               <div className="absolute -bottom-3 -left-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg px-4 py-2 flex items-center gap-2 border border-green-100">

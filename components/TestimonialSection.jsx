@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Star, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -80,13 +81,13 @@ const TestimonialSection = () => {
                   <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-100 shadow-sm relative min-h-[260px] sm:min-h-[280px] flex flex-col h-full">
                     <MessageSquare className="absolute top-4 right-4 sm:top-6 sm:right-6 text-green-100" size={40} />
                     <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                      <img src={t.image} alt={t.name} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 sm:border-4 border-white shadow-md flex-shrink-0" />
+                      <Image src={t.image} alt={t.name} width={56} height={56} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 sm:border-4 border-white shadow-md flex-shrink-0" />
                       <div className="min-w-0 flex-1">
                         <h4 className="text-base sm:text-lg font-bold text-gray-900 truncate">{t.name}</h4>
                         <p className="text-green-600 font-medium text-xs sm:text-sm">{t.location}</p>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed mb-3 sm:mb-4 flex-grow text-sm sm:text-base line-clamp-4">"{t.comment}"</p>
+                    <p className="text-gray-700 leading-relaxed mb-3 sm:mb-4 flex-grow text-sm sm:text-base line-clamp-4">{`\u201C${t.comment}\u201D`}</p>
                     <div className="flex gap-0.5 sm:gap-1">
                       {Array.from({ length: t.rating }).map((_, i) => (
                         <Star key={i} size={14} className="sm:w-4 sm:h-4 text-yellow-400 fill-yellow-400 flex-shrink-0" />

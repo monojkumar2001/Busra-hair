@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import { CheckCircle2 } from 'lucide-react';
 
 const SolutionIntroduction = () => (
   <section className="py-12 sm:py-20 bg-green-900 text-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 sm:gap-12">
-      <div className="flex-1 w-full max-w-md">
-        <img src="/images/product-1.png" className="rounded-2xl sm:rounded-3xl shadow-2xl border-4 border-green-800 w-full object-cover aspect-[3/4]" alt="Busra Organic Hair Oil" />
+      <div className="flex-1 w-full max-w-md relative aspect-[3/4]">
+        <Image src="/images/product-1.png" fill className="rounded-2xl sm:rounded-3xl shadow-2xl border-4 border-green-800 object-cover" alt="Busra Organic Hair Oil" sizes="(max-width: 448px) 100vw, 448px" />
       </div>
       <div className="flex-1">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">প্রকৃতির উপহার: Busra Organic Hair Oil</h2>
