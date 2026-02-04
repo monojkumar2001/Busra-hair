@@ -29,10 +29,10 @@ const Navbar = () => {
       scrolled ? 'bg-white shadow-lg border-b border-green-100' : 'bg-white border-b border-green-100'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 md:h-18 items-center">
-          <a href="/" className="flex items-center gap-2 group">
-            <div className=" group-hover:scale-110 transition-transform py-2 px-2">
-            <img src="/images/logo.png" alt="Busra Organic Hair Oil" className="w-20 h-20 py-2 px-2" />
+        <div className="flex justify-between h-14 sm:h-16 md:h-20 items-center">
+          <a href="/" className="flex items-center gap-1 sm:gap-2 group min-w-0">
+            <div className="group-hover:scale-105 transition-transform flex-shrink-0">
+            <img src="/images/logo.png" alt="Busra Organic Hair Oil" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain" />
             </div>
           </a>
 

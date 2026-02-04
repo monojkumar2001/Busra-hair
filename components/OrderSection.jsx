@@ -35,12 +35,12 @@ const OrderSection = () => {
   ];
 
   return (
-    <section id="order-form" className="py-24 bg-green-50">
+    <section id="order-form" className="py-12 sm:py-16 md:py-24 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-8">
-            <h2 className="text-4xl font-black text-gray-900 leading-tight">অর্ডারের নিয়ম (Cash On Delivery)</h2>
-            <p className="text-xl text-gray-600 font-medium">আপনার অর্ডারটি নিশ্চিন্তে করুন:</p>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 leading-tight">অর্ডারের নিয়ম (Cash On Delivery)</h2>
+            <p className="text-lg sm:text-xl text-gray-600 font-medium">আপনার অর্ডারটি নিশ্চিন্তে করুন:</p>
             <div className="space-y-6">
               {rules.map((rule, idx) => {
                 const Icon = rule.icon;
@@ -69,7 +69,7 @@ const OrderSection = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-green-100 relative">
+          <div className="bg-white rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 shadow-2xl border border-green-100 relative">
             {isSuccess && (
               <div className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
@@ -147,7 +147,7 @@ const OrderSection = () => {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className={`w-full py-6 rounded-2xl font-black text-2xl shadow-xl shadow-green-100 flex items-center justify-center gap-3 transition-all ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 hover:scale-[1.02]'}`}
+                className={`w-full py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl shadow-xl shadow-green-100 flex items-center justify-center gap-3 transition-all min-h-[48px] ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 hover:scale-[1.02] active:scale-[0.98]'}`}
               >
                 {isSubmitting ? (
                   <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />

@@ -16,90 +16,113 @@ const TESTIMONIALS = [
   { id: 10, name: "রীতা চৌধুরী", location: "রাজশাহী", comment: "চুলের রুক্ষতা দূর করতে এই অয়েলটা জাদুর মতো কাজ করে। শ্যাম্পু করার পরও চুলের ময়েশ্চারাইজার বজায় থাকে।", rating: 5, image: "https://picsum.photos/seed/rita/200/200" },
 ];
 
-const CARDS_PER_SLIDE = 3;
-const totalSlides = Math.ceil(TESTIMONIALS.length / CARDS_PER_SLIDE);
+const totalCards = TESTIMONIALS.length;
+const cardWidthPercentOfTrack = 100 / totalCards; // প্রতিটি কার্ড ট্র্যাকের ১০%
 
 const TestimonialSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsVisible, setCardsVisible] = useState(1);
+
+  useEffect(() => {
+    const updateCardsVisible = () => {
+      const w = window.innerWidth;
+      if (w < 640) setCardsVisible(1);
+      else if (w < 1024) setCardsVisible(2);
+      else setCardsVisible(3);
+    };
+    updateCardsVisible();
+    window.addEventListener('resize', updateCardsVisible);
+    return () => window.removeEventListener('resize', updateCardsVisible);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 3000);
+      setCurrentIndex((prev) => (prev + 1) % totalCards);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
-  const next = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  const prev = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const next = () => setCurrentIndex((prev) => (prev + 1) % totalCards);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
 
-  const getVisibleTestimonials = () => {
-    const n = TESTIMONIALS.length;
-    const start = (currentSlide * CARDS_PER_SLIDE) % n;
-    return Array.from({ length: CARDS_PER_SLIDE }, (_, i) => TESTIMONIALS[(start + i) % n]);
-  };
-
-  const visible = getVisibleTestimonials();
+  const trackWidthPercent = totalCards * (100 / cardsVisible);
+  const translatePercent = currentIndex * cardWidthPercentOfTrack;
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-black text-gray-900 mb-4">কাস্টমার ফিডব্যাক</h2>
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3 sm:mb-4 px-2">কাস্টমার ফিডব্যাক</h2>
           <div className="flex justify-center items-center gap-1">
             {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} size={24} className="text-yellow-400 fill-yellow-400" />
+              <Star key={i} size={20} className="sm:w-6 sm:h-6 text-yellow-400 fill-yellow-400" />
             ))}
           </div>
-          <p className="mt-4 text-gray-500 font-medium">হাজার হাজার খুশি গ্রাহকের ভালোবাসা</p>
+          <p className="mt-3 sm:mt-4 text-gray-500 font-medium text-sm sm:text-base">হাজার হাজার খুশি গ্রাহকের ভালোবাসা</p>
         </div>
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {visible.map((t) => (
-              <div key={t.id} className="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 shadow-sm relative min-h-[280px] flex flex-col">
-                <MessageSquare className="absolute top-6 right-6 text-green-100" size={48} />
-                <div className="flex items-center gap-4 mb-4">
-                  <img src={t.image} alt={t.name} className="w-14 h-14 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0" />
-                  <div className="min-w-0">
-                    <h4 className="text-lg font-bold text-gray-900 truncate">{t.name}</h4>
-                    <p className="text-green-600 font-medium text-sm">{t.location}</p>
+        <div className="relative overflow-hidden px-2 sm:px-0">
+          {/* Extra padding so nav buttons don't overlap content on small screens */}
+          <div className="relative overflow-hidden">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                width: `${trackWidthPercent}%`,
+                transform: `translateX(-${translatePercent}%)`,
+              }}
+            >
+              {TESTIMONIALS.map((t) => (
+                <div
+                  key={t.id}
+                  className="flex-shrink-0 px-1.5 sm:px-2 lg:px-3"
+                  style={{ width: `${cardWidthPercentOfTrack}%` }}
+                >
+                  <div className="bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-100 shadow-sm relative min-h-[260px] sm:min-h-[280px] flex flex-col h-full">
+                    <MessageSquare className="absolute top-4 right-4 sm:top-6 sm:right-6 text-green-100" size={40} />
+                    <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      <img src={t.image} alt={t.name} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 sm:border-4 border-white shadow-md flex-shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-base sm:text-lg font-bold text-gray-900 truncate">{t.name}</h4>
+                        <p className="text-green-600 font-medium text-xs sm:text-sm">{t.location}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed mb-3 sm:mb-4 flex-grow text-sm sm:text-base line-clamp-4">"{t.comment}"</p>
+                    <div className="flex gap-0.5 sm:gap-1">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star key={i} size={14} className="sm:w-4 sm:h-4 text-yellow-400 fill-yellow-400 flex-shrink-0" />
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-4 flex-grow line-clamp-4">"{t.comment}"</p>
-                <div className="flex gap-1">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400 flex-shrink-0" />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <button
-            type="button"
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 bg-white text-green-600 p-3 rounded-full shadow-lg hover:bg-green-50 transition-colors border border-green-100 z-10"
-            aria-label="Previous"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 bg-white text-green-600 p-3 rounded-full shadow-lg hover:bg-green-50 transition-colors border border-green-100 z-10"
-            aria-label="Next"
-          >
-            <ChevronRight size={24} />
-          </button>
+            <button
+              type="button"
+              onClick={prev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white text-green-600 p-2.5 sm:p-3 rounded-full shadow-lg hover:bg-green-50 active:scale-95 transition-all border border-green-100 min-w-[44px] min-h-[44px] flex items-center justify-center -translate-x-0 sm:-translate-x-1 lg:-translate-x-2"
+              aria-label="Previous"
+            >
+              <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white text-green-600 p-2.5 sm:p-3 rounded-full shadow-lg hover:bg-green-50 active:scale-95 transition-all border border-green-100 min-w-[44px] min-h-[44px] flex items-center justify-center translate-x-0 sm:translate-x-1 lg:translate-x-2"
+              aria-label="Next"
+            >
+              <ChevronRight size={20} className="sm:w-6 sm:h-6" />
+            </button>
+          </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-10">
-          {Array.from({ length: totalSlides }).map((_, i) => (
+        <div className="flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8 md:mt-10 flex-wrap px-2">
+          {Array.from({ length: totalCards }).map((_, i) => (
             <button
               key={i}
               type="button"
-              onClick={() => setCurrentSlide(i)}
-              className={`h-2 rounded-full transition-all ${currentSlide === i ? 'w-8 bg-green-600' : 'w-2 bg-green-200 hover:bg-green-300'}`}
+              onClick={() => setCurrentIndex(i)}
+              className={`rounded-full transition-all min-w-[8px] min-h-[8px] ${currentIndex === i ? 'w-6 sm:w-8 bg-green-600' : 'w-2 bg-green-200 hover:bg-green-300'}`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}

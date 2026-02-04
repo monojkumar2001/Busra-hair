@@ -1,10 +1,10 @@
 import { Droplets, ShieldCheck, Leaf } from 'lucide-react';
 
 const ProblemSection = () => (
-  <section id="problem" className="py-20 bg-white">
+  <section id="problem" className="py-12 sm:py-16 md:py-20 bg-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4 italic">আপনার কি এই সমস্যাগুলো হচ্ছে?</h2>
+      <div className="text-center mb-10 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 italic px-2">আপনার কি এই সমস্যাগুলো হচ্ছে?</h2>
         <div className="w-24 h-1 bg-red-200 mx-auto rounded-full"></div>
       </div>
 
@@ -27,10 +27,10 @@ const ProblemSection = () => (
         })}
       </div>
 
-      <div className="mt-16 max-w-3xl mx-auto bg-green-50 border-2 border-green-200 rounded-3xl p-8 text-center">
-        <h3 className="text-2xl font-bold text-green-800 mb-4">সমাধান:</h3>
-        <p className="text-3xl font-black text-green-900 leading-snug">
-          আপনার এই সকল সমস্যার ওয়ান-স্টপ সলিউশন হলো <br />
+      <div className="mt-10 sm:mt-16 max-w-3xl mx-auto bg-green-50 border-2 border-green-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center">
+        <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-3 sm:mb-4">সমাধান:</h3>
+        <p className="text-xl sm:text-2xl md:text-3xl font-black text-green-900 leading-snug px-1">
+          আপনার এই সকল সমস্যার ওয়ান-স্টপ সলিউশন হলো <br className="hidden sm:block" />
           <span className="text-green-600 underline decoration-green-300 underline-offset-8">Busra Organic Hair Oil</span>
         </p>
       </div>

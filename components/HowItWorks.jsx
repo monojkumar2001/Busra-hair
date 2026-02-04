@@ -9,17 +9,17 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="how-it-works" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">কিভাবে ব্যবহার করবেন?</h2>
-          <p className="text-gray-600 text-lg">খুবই সহজ ৪টি ধাপ – নিয়মিত ব্যবহারে চুল পড়া কমবে ও নতুন চুল গজাবে।</p>
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-2">কিভাবে ব্যবহার করবেন?</h2>
+          <p className="text-gray-600 text-base sm:text-lg px-2">খুবই সহজ ৪টি ধাপ – নিয়মিত ব্যবহারে চুল পড়া কমবে ও নতুন চুল গজাবে।</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((item, idx) => {
             const IconComponent = item.icon;
             return (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-xl hover:scale-[1.02] transition-all">
+              <div key={idx} className="bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-xl hover:scale-[1.02] transition-all">
                 <div className={`w-16 h-16 ${item.color} text-white rounded-full flex items-center justify-center font-black text-xl mx-auto mb-6`}>
                   {item.step}
                 </div>

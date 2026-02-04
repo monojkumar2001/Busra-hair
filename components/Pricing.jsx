@@ -8,15 +8,15 @@ const PACKAGES = [
 ];
 
 const Pricing = () => (
-  <section id="packages" className="py-24 bg-gray-50">
+  <section id="packages" className="py-12 sm:py-16 md:py-24 bg-gray-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <div className="inline-block bg-yellow-400 text-yellow-900 px-6 py-2 rounded-full font-black text-xl mb-6 shadow-lg border-2 border-yellow-500">
+      <div className="text-center mb-10 sm:mb-16">
+        <div className="inline-block bg-yellow-400 text-yellow-900 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-black text-base sm:text-xl mb-4 sm:mb-6 shadow-lg border-2 border-yellow-500">
           এই অফার থাকবে মাত্র দুই দিন!
         </div>
-        <h2 className="text-4xl font-black text-gray-900">সেরা প্যাকেজগুলো থেকে বেছে নিন</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 px-2">সেরা প্যাকেজগুলো থেকে বেছে নিন</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 max-w-5xl mx-auto">
         {PACKAGES.map((pkg) => (
           <div
             key={pkg.id}
@@ -27,11 +27,11 @@ const Pricing = () => (
                 Best Value
               </div>
             )}
-            <div className="p-10 flex-grow">
-              <h3 className="text-3xl font-black text-gray-800 mb-6">{pkg.title}</h3>
-              <ul className="space-y-4 mb-8">
+            <div className="p-6 sm:p-8 md:p-10 flex-grow">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-800 mb-4 sm:mb-6">{pkg.title}</h3>
+              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 {pkg.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-lg font-medium text-gray-700">
+                  <li key={idx} className="flex items-center gap-3 text-base sm:text-lg font-medium text-gray-700">
                     <CheckCircle className="text-green-600 flex-shrink-0" size={24} />
                     {item}
                   </li>
@@ -52,13 +52,13 @@ const Pricing = () => (
                 </ul>
               </div>
               <div className="mt-auto">
-                <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-5xl font-black text-green-700">৳{pkg.price}</span>
-                  <span className="text-gray-400 line-through text-lg">৳{pkg.price + 500}</span>
+                <div className="flex items-baseline gap-2 mb-4 sm:mb-6">
+                  <span className="text-4xl sm:text-5xl font-black text-green-700">৳{pkg.price}</span>
+                  <span className="text-gray-400 line-through text-base sm:text-lg">৳{pkg.price + 500}</span>
                 </div>
                 <a
                   href="#order-form"
-                  className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-3 transition-all ${pkg.isPopular ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-900 text-white hover:bg-black'}`}
+                  className={`w-full py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-3 transition-all min-h-[48px] ${pkg.isPopular ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-900 text-white hover:bg-black'}`}
                 >
                   <ShoppingBag size={24} />
                   অর্ডার করুন

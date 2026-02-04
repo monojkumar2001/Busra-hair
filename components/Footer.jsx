@@ -7,13 +7,13 @@ const TikTokIcon = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
+  <footer className="bg-gray-900 text-white py-10 sm:py-12 border-t border-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <img src="/images/logo.png" alt="Busra Organic" className="h-12 w-auto object-contain" />
-        <span className="text-2xl font-bold tracking-tight">Busra Organic Hair Oil</span>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-6">
+        <img src="/images/logo.png" alt="Busra Organic" className="h-10 sm:h-12 w-auto object-contain" />
+        <span className="text-xl sm:text-2xl font-bold tracking-tight text-center">Busra Organic Hair Oil</span>
       </div>
-      <p className="text-gray-400 max-w-xl mx-auto mb-6">
+      <p className="text-gray-400 max-w-xl mx-auto mb-6 text-sm sm:text-base px-2">
         আমরা আপনাকে শতভাগ পিওর এবং অর্গানিক পণ্যের নিশ্চয়তা দিচ্ছি। আপনার চুলের সঠিক যত্নই আমাদের একমাত্র লক্ষ্য।
       </p>
 
@@ -48,10 +48,10 @@ const Footer = () => (
         </a>
       </div>
 
-      <div className="flex justify-center gap-8 mb-8 flex-wrap">
-        <a href="#" className="hover:text-green-500 transition-colors">Privacy Policy</a>
-        <a href="#" className="hover:text-green-500 transition-colors">Terms of Service</a>
-        <a href="#order-form" className="hover:text-green-500 transition-colors">Contact Us</a>
+      <div className="flex justify-center gap-4 sm:gap-8 mb-8 flex-wrap px-2">
+        <a href="#" className="hover:text-green-500 transition-colors text-sm sm:text-base">Privacy Policy</a>
+        <a href="#" className="hover:text-green-500 transition-colors text-sm sm:text-base">Terms of Service</a>
+        <a href="#order-form" className="hover:text-green-500 transition-colors text-sm sm:text-base">Contact Us</a>
       </div>
       <div className="w-full h-px bg-gray-800 mb-8"></div>
       <p className="text-gray-500 text-sm">
