@@ -4,29 +4,26 @@ const ProblemSection = () => (
   <section id="problem" className="py-12 sm:py-16 md:py-20 bg-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10 sm:mb-16">
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-800 font-semibold mb-2 px-2">আপনার চুল কি লম্বা হচ্ছে না?</p>
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-800 font-semibold mb-4 px-2">সারা বছর একই লেন্থ এ পড়ে থাকে?</p>
-        <p className="text-base sm:text-lg text-green-700 font-medium mb-6 max-w-2xl mx-auto px-2">
-          আমাদের হেয়ার কম্ব টি ব্যবহারে প্রতি মাসে আপনার চুল দুই থেকে তিন ইঞ্চি লম্বা হবে।
-        </p>
+  
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 italic px-2">আপনার কি এই সমস্যাগুলো হচ্ছে?</h2>
         <div className="w-24 h-1 bg-red-200 mx-auto rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
         {[
           { text: "চুল কি অতিরিক্ত হারে ঝরে যাচ্ছে?", icon: Droplets },
           { text: "অল্প বয়সেই কি টাক পড়ার ভয় পাচ্ছেন?", icon: ShieldCheck },
           { text: "চুল কি রুক্ষ, শুষ্ক এবং প্রাণহীন হয়ে গেছে?", icon: Leaf },
-          { text: "খুশকি কি আপনার পিছু ছাড়ছে না?", icon: Droplets }
+          { text: "খুশকি কি আপনার পিছু ছাড়ছে না?", icon: Droplets },
+          { text: "আপনার চুল কি লম্বা হচ্ছে না? সারা বছর একই লেন্থ এ পড়ে থাকে?", icon: Leaf }
         ].map((item, idx) => {
           const Icon = item.icon;
           return (
-            <div key={idx} className="bg-red-50 p-8 rounded-2xl border border-red-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-              <div className="bg-white p-3 rounded-full mb-4 shadow-sm">
-                <Icon className="text-red-500" size={32} />
+            <div key={idx} className="bg-red-50 p-5 sm:p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center hover:shadow-lg hover:border-red-200 transition-all min-h-[180px] sm:min-h-[200px] justify-center">
+              <div className="bg-white p-3 rounded-full mb-3 sm:mb-4 shadow-sm flex-shrink-0">
+                <Icon className="text-red-500" size={28} />
               </div>
-              <p className="text-lg font-bold text-gray-800">{item.text}</p>
+              <p className="text-base sm:text-lg font-bold text-gray-800 leading-snug">{item.text}</p>
             </div>
           );
         })}

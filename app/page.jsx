@@ -8,7 +8,6 @@ import ProblemSection from '@/components/ProblemSection';
 import SolutionIntroduction from '@/components/SolutionIntroduction';
 import HowItWorks from '@/components/HowItWorks';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import DetectionGrid from '@/components/DetectionGrid';
 import ResultExplanation from '@/components/ResultExplanation';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
 import StrongCTA from '@/components/StrongCTA';
@@ -28,7 +27,6 @@ export default function Page() {
       <SolutionIntroduction />
       <HowItWorks />
       <WhyChooseUs />
-      <DetectionGrid />
       <ResultExplanation />
       <BeforeAfterSection />
       <StrongCTA />

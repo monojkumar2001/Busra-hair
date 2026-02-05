@@ -11,13 +11,13 @@ const BeforeAfterSection = () => (
           Busra Organic ব্যবহারে আসল পরিবর্তন – Before & After
         </p>
       </div>
-      <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-4xl mx-auto relative aspect-[4/3]">
+      <div className="w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 relative aspect-[4/3]">
         <Image
           src="/images/product-2.jpeg"
           alt="Busra Organic হেয়ার কেয়ার ব্যবহারের আগে ও পরে – চুলের পরিবর্তনের প্রমাণ"
           fill
-          className="object-contain"
-          sizes="(max-width: 896px) 100vw, 896px"
+          className="object-cover w-full"
+          sizes="100vw"
         />
       </div>
     </div>

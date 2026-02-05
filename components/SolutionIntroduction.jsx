@@ -10,7 +10,7 @@ const SolutionIntroduction = () => (
       <div className="flex-1">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">প্রকৃতির উপহার: Busra Organic Hair Oil</h2>
         <p className="text-green-100 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-          আমলকী, শিকাকাই, কালোজিরা ও ২৫টিরও বেশি আয়ুর্বেদিক ভেষজ উপাদানের মিশ্রণে তৈরি এই অয়েল চুলের গোড়া মজবুত করে, খুশকি দূর করে এবং নতুন চুল গজাতে সাহায্য করে।
+          আমলকী, শিকাকাই, কালোজিরা ও ৪৭টিরও বেশি আয়ুর্বেদিক ভেষজ উপাদান  এবং ১০ টি প্রিমিয়াম তেলের মিশ্রণে তৈরি এই অয়েল চুলের গোড়া মজবুত করে, খুশকি দূর করে এবং নতুন চুল গজাতে সাহায্য করে।
         </p>
         <div className="space-y-3 sm:space-y-4">
           <div className="flex items-center gap-2 sm:gap-3 text-green-100">

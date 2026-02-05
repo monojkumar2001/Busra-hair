@@ -167,7 +167,7 @@ const OrderSection = () => {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className={`w-full py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl shadow-xl shadow-green-100 flex items-center justify-center gap-3 transition-all min-h-[48px] ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 text-white hover:bg-green-700 hover:scale-[1.02] active:scale-[0.98]'}`}
+                className={`w-full py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl shadow-xl shadow-green-100 flex items-center justify-center gap-3 transition-all min-h-[48px] ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'btn-zamp bg-green-600 text-white hover:bg-green-700 active:scale-[0.98]'}`}
               >
                 {isSubmitting ? (
                   <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
