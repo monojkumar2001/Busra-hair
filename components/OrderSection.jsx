@@ -51,7 +51,6 @@ const OrderSection = () => {
   const rules = [
     { title: "১. কোনো অগ্রিম পেমেন্ট ছাড়া", desc: "কোনো অগ্রিম পেমেন্ট ছাড়াই অর্ডার করুন এবং নিশ্চিন্তে থাকুন।", icon: ShieldCheck },
     { title: "২. কোয়ালিটি চেক সুবিধা", desc: "পণ্য হাতে পেয়ে কোয়ালিটি চেক করে টাকা পরিশোধ করুন।", icon: CheckCircle },
-    { title: "৩. হোম ডেলিভারি", desc: "সারা বাংলাদেশে দ্রুততম হোম ডেলিভারি সুবিধা।", icon: Truck }
   ];
 
   return (
@@ -86,6 +85,14 @@ const OrderSection = () => {
                 <p className="text-xs uppercase tracking-wide text-gray-400 mb-1">Contact</p>
                 <a href="tel:01736066568" className="text-2xl font-black text-green-700 hover:text-green-600 transition-colors">০১৭৩৬০৬৬৫৬৮</a>
               </div>
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 sm:p-6">
+              <h4 className="text-lg font-bold text-gray-900 mb-2">ডেলিভারি চার্জ সংক্রান্ত তথ্য</h4>
+              <p className="text-gray-700 text-sm sm:text-base mb-3">কম্বো প্যাকেজ ব্যতীত আমাদের সকল পণ্যের মূল্যের সাথে ডেলিভারি চার্জ যুক্ত হবে।</p>
+              <ul className="space-y-1 text-gray-800 font-medium">
+                <li>ঢাকার ভিতরে: ৮০ টাকা</li>
+                <li>ঢাকার বাইরে: ১৫০ টাকা</li>
+              </ul>
             </div>
           </div>
 

@@ -59,9 +59,19 @@ const TopSellingProducts = () => {
             </a>
           ))}
         </div>
+
+          <div className="mt-8 sm:mt-10 w-full flex justify-center items-center relative rounded-xl overflow-hidden ">
+            <Image
+              src="/images/product-de.jpeg"
+              alt="Busra Organic Product"
+            width={1000}
+            height={1000}
+            className=" rounded-xl"
+          />
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default TopSellingProducts;
+export default TopSellingProducts

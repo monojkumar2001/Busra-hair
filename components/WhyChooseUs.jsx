@@ -32,7 +32,7 @@ const WhyChooseUs = () => (
           })}
         </div>
 
-        <div className=" md:flex justify-center items-center">
+        <div className="hidden md:flex justify-center items-center">
           <div className="relative w-full max-w-sm aspect-[3/4]">
             <div className="absolute -inset-10 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
             <Image
