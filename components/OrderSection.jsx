@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { ShieldCheck, CheckCircle, Truck, PhoneCall, ArrowRight, Package as PackageIcon } from 'lucide-react';
 
+const WHATSAPP_NUMBER = '8801757859893'; // 01736066568 with country code
+
 const PACKAGES = [
   { id: 1, title: "ফুল কম্বো অফার", items: ["২০০ মিলি হেয়ার অয়েল", "২০০ গ্রাম হেয়ার প্যাক", "১০০ গ্রাম শ্যাম্পু"], price: 1300, freebies: ["১০০ মিলি হেয়ার টোনার", "৫০ গ্রাম হেয়ার প্যাক", "ডেলিভারি চার্জ ফ্রি"], isPopular: true },
   { id: 2, title: "বেসিক কম্বো অফার", items: ["২০০ মিলি হেয়ার অয়েল", "২০০ গ্রাম হেয়ার প্যাক"], price: 1050, freebies: ["১০০ মিলি হেয়ার টোনার", "৫০ গ্রাম হেয়ার প্যাক", "ডেলিভারি চার্জ ফ্রি"], isPopular: false },
@@ -21,11 +23,29 @@ const OrderSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const selectedPkg = PACKAGES.find((p) => String(p.id) === formData.package);
+    const message = [
+      '*নতুন অর্ডার - Busra Organic*',
+      '',
+      '*নাম:* ' + formData.name,
+      '*মোবাইল:* ' + formData.phone,
+      '*ঠিকানা:* ' + formData.address,
+      '',
+      '*প্যাকেজ:* ' + (selectedPkg?.title || ''),
+      '*মূল্য:* ৳' + (selectedPkg?.price || ''),
+      '',
+      '— এই অর্ডারটি ওয়েবসাইট থেকে পাঠানো হয়েছে।'
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
       setFormData({ name: '', phone: '', address: '', package: '1' });
-    }, 1500);
+    }, 800);
   };
 
   const rules = [
