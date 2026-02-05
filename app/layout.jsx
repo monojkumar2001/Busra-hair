@@ -1,4 +1,5 @@
 import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
   title: "Busra Organic Hair Oil | চুল পড়া বন্ধ করুন – প্রাকৃতিক হেয়ার অয়েল",
@@ -57,7 +58,10 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

@@ -3,6 +3,7 @@
 import { ShoppingBag } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import TopSellingProducts from '@/components/TopSellingProducts';
 import ProblemSection from '@/components/ProblemSection';
 import SolutionIntroduction from '@/components/SolutionIntroduction';
 import HowItWorks from '@/components/HowItWorks';
@@ -21,7 +22,9 @@ export default function Page() {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      <TopSellingProducts />
       <ProblemSection />
+
       <SolutionIntroduction />
       <HowItWorks />
       <WhyChooseUs />

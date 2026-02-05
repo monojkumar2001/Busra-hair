@@ -1,9 +1,28 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ShieldCheck, ArrowRight, Leaf, Droplets } from 'lucide-react';
 
+const HERO_SLIDES = [
+  '/images/product-1.png',
+  '/images/product-3.png',
+  '/images/product-4.png',
+  '/images/product-5.png',
+  '/images/product-6.png',
+ 
+];
+
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative bg-gradient-to-br from-green-50 via-white to-green-100 pt-24 sm:pt-28 pb-12 sm:pb-16 md:pt-36 md:pb-24 overflow-hidden min-h-[75vh] sm:min-h-[80vh] md:min-h-[85vh] flex flex-col justify-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex flex-col justify-center">
@@ -43,14 +62,36 @@ const Hero = () => {
           <div className="flex-1 w-full max-w-lg mx-auto lg:max-w-none order-1 lg:order-2">
             <div className="relative">
               <div className="absolute -inset-4 bg-green-200/30 rounded-3xl blur-2xl -z-10"></div>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[3/4]">
-                <Image
-                  src="/images/product-1.png"
-                  alt="Busra Organic Hair Oil - প্রাকৃতিক হেয়ার অয়েল"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 512px"
-                />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[4/4]">
+                {HERO_SLIDES.map((src, i) => (
+                  <div
+                    key={i}
+                    className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+                    style={{ opacity: i === currentSlide ? 1 : 0 }}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Busra Organic Hair Oil - স্লাইড ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 512px"
+                    />
+                  </div>
+                ))}
+                {/* Dots */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                  {HERO_SLIDES.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setCurrentSlide(i)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        i === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                      aria-label={`স্লাইড ${i + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
               <div className="absolute -bottom-3 -left-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg px-4 py-2 flex items-center gap-2 border border-green-100">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
