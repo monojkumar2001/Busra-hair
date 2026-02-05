@@ -4,6 +4,11 @@ const ProblemSection = () => (
   <section id="problem" className="py-12 sm:py-16 md:py-20 bg-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10 sm:mb-16">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-800 font-semibold mb-2 px-2">আপনার চুল কি লম্বা হচ্ছে না?</p>
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-800 font-semibold mb-4 px-2">সারা বছর একই লেন্থ এ পড়ে থাকে?</p>
+        <p className="text-base sm:text-lg text-green-700 font-medium mb-6 max-w-2xl mx-auto px-2">
+          আমাদের হেয়ার কম্ব টি ব্যবহারে প্রতি মাসে আপনার চুল দুই থেকে তিন ইঞ্চি লম্বা হবে।
+        </p>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 italic px-2">আপনার কি এই সমস্যাগুলো হচ্ছে?</h2>
         <div className="w-24 h-1 bg-red-200 mx-auto rounded-full"></div>
       </div>

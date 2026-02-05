@@ -35,7 +35,7 @@ const OrderSection = () => {
   ];
 
   return (
-    <section id="order-form" className="py-12 sm:py-16 md:py-24 bg-green-50">
+    <section id="order-form" className="pt-12 pb-28 sm:pt-16 sm:pb-16 md:py-24 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <div className="space-y-6 sm:space-y-8">

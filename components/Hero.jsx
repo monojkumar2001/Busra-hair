@@ -5,11 +5,13 @@ import Image from 'next/image';
 import { ShieldCheck, ArrowRight, Leaf, Droplets } from 'lucide-react';
 
 const HERO_SLIDES = [
-  '/images/product-1.png',
+  '/images/product-6.png',
+  '/images/product-7.png',
   '/images/product-3.png',
+  '/images/product-1.png',
   '/images/product-4.png',
   '/images/product-5.png',
-  '/images/product-6.png',
+
  
 ];
 

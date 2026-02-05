@@ -13,7 +13,7 @@ const BeforeAfterSection = () => (
       </div>
       <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-4xl mx-auto relative aspect-[4/3]">
         <Image
-          src="/images/product-2.png"
+          src="/images/product-2.jpeg"
           alt="Busra Organic হেয়ার কেয়ার ব্যবহারের আগে ও পরে – চুলের পরিবর্তনের প্রমাণ"
           fill
           className="object-contain"

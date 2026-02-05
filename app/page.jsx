@@ -19,7 +19,7 @@ import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
       <Hero />
       <TopSellingProducts />
@@ -38,7 +38,7 @@ export default function Page() {
       <Footer />
 
       {/* Floating CTA for Mobile - safe area aware */}
-      <div className="lg:hidden fixed bottom-6 right-4 sm:right-6 z-40 pb-[env(safe-area-inset-bottom)]">
+      <div className="lg:hidden fixed right-4 sm:right-6 z-40 bottom-[max(1.5rem,calc(0.5rem+env(safe-area-inset-bottom)))]">
         <a
           href="#order-form"
           className="bg-green-600 text-white min-w-[56px] min-h-[56px] p-4 rounded-full shadow-2xl flex items-center justify-center border-4 border-white active:scale-95 transition-transform"
