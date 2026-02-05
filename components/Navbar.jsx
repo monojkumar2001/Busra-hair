@@ -62,7 +62,7 @@ const Navbar = () => {
             <a
               href="#order-form"
               onClick={(e) => handleLinkClick(e, '#order-form')}
-              className="bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-green-700 transition-colors flex items-center gap-2"
+              className="btn-zamp bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-green-700 transition-colors flex items-center gap-2"
             >
               <ShoppingBag size={18} />
               অর্ডার করুন
@@ -95,7 +95,7 @@ const Navbar = () => {
           <a href="#packages" onClick={(e) => handleLinkClick(e, '#packages')} className="block py-3 px-4 text-gray-600 hover:bg-green-50 rounded-lg font-medium">
             প্যাকেজ
           </a>
-          <a href="#order-form" onClick={(e) => handleLinkClick(e, '#order-form')} className="block py-3 px-4 bg-green-600 text-white rounded-lg font-bold text-center">
+          <a href="#order-form" onClick={(e) => handleLinkClick(e, '#order-form')} className="btn-zamp block py-3 px-4 bg-green-600 text-white rounded-lg font-bold text-center">
             অর্ডার করুন
           </a>
         </div>

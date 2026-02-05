@@ -8,6 +8,7 @@ const HERO_SLIDES = [
   '/images/product-6.png',
   '/images/product-7.png',
   '/images/product-3.png',
+  '/images/product-9.png',
   '/images/product-1.png',
   '/images/product-4.png',
   '/images/product-5.png',
@@ -48,7 +49,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#order-form"
-                className="group w-full sm:w-auto bg-green-600 text-white text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg min-h-[48px] flex items-center justify-center shadow-green-200 hover:bg-green-700 hover:scale-105 transition-all flex items-center justify-center gap-2"
+                className="btn-zamp group w-full sm:w-auto bg-green-600 text-white text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg min-h-[48px] flex items-center justify-center shadow-green-200 hover:bg-green-700 transition-all flex items-center justify-center gap-2"
               >
                 অর্ডার করুন
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

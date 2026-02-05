@@ -58,7 +58,7 @@ const Pricing = () => (
                 </div>
                 <a
                   href="#order-form"
-                  className={`w-full py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-3 transition-all min-h-[48px] ${pkg.isPopular ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-900 text-white hover:bg-black'}`}
+                  className={`btn-zamp w-full py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-3 transition-all min-h-[48px] ${pkg.isPopular ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-900 text-white hover:bg-black'}`}
                 >
                   <ShoppingBag size={24} />
                   অর্ডার করুন
