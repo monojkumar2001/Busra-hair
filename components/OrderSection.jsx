@@ -6,7 +6,7 @@ import { ShieldCheck, CheckCircle, Truck, PhoneCall, ArrowRight, Package as Pack
 const ORDER_FROM_PRODUCT_KEY = 'orderFromProduct';
 const ORDER_FROM_PRODUCT_EVENT = 'orderFromProduct';
 
-const WHATSAPP_NUMBER = '8801757859893'; // 01736066568 with country code
+const WHATSAPP_NUMBER = '8801736066568'; // 01736066568 with country code
 
 const PACKAGES = [
   { id: 1, title: "ফুল কম্বো অফার", items: ["২০০ মিলি হেয়ার অয়েল", "২০০ গ্রাম হেয়ার প্যাক", "১০০ গ্রাম শ্যাম্পু"], price: 1300, freebies: ["১০০ মিলি হেয়ার টোনার", "৫০ গ্রাম হেয়ার প্যাক", "ডেলিভারি চার্জ ফ্রি"], isPopular: true },
