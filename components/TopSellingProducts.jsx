@@ -13,6 +13,18 @@ const PRODUCTS = [
   { id: 7, name: 'Busra Scalp Massager', price: 180, image: '/images/product/7.png' },
 ];
 
+const ORDER_FROM_PRODUCT_EVENT = 'orderFromProduct';
+
+const scrollToOrderForm = (e) => {
+  e.preventDefault();
+  if (typeof window !== 'undefined') {
+    window.sessionStorage.setItem('orderFromProduct', '1');
+    window.dispatchEvent(new CustomEvent(ORDER_FROM_PRODUCT_EVENT));
+  }
+  const formEl = document.getElementById('order-form');
+  if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const TopSellingProducts = () => {
   return (
     <section
@@ -29,6 +41,7 @@ const TopSellingProducts = () => {
             <a
               key={product.id}
               href="#order-form"
+              onClick={scrollToOrderForm}
               className="flex-shrink-0 w-[220px] sm:w-[240px] md:w-[200px] lg:w-[220px] snap-center group"
             >
               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 flex flex-col h-full">
@@ -71,7 +84,7 @@ const TopSellingProducts = () => {
           />
         </div>
         <div className="flex justify-center mt-6">
-        <a href="#order-form" class="btn-zamp inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl hover:bg-green-700 transition-all shadow-xl active:scale-95 min-h-[48px]">অর্ডার কনফার্ম করুন<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+        <a href="#order-form" onClick={scrollToOrderForm} className="btn-zamp inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-lg sm:text-xl hover:bg-green-700 transition-all shadow-xl active:scale-95 min-h-[48px]">অর্ডার কনফার্ম করুন<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
             </div>
       </div>
     </section>

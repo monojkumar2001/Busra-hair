@@ -1,7 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ShieldCheck, CheckCircle, Truck, PhoneCall, ArrowRight, Package as PackageIcon } from 'lucide-react';
+
+const ORDER_FROM_PRODUCT_KEY = 'orderFromProduct';
+const ORDER_FROM_PRODUCT_EVENT = 'orderFromProduct';
 
 const WHATSAPP_NUMBER = '8801757859893'; // 01736066568 with country code
 
@@ -19,6 +22,21 @@ const OrderSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [hidePackages, setHidePackages] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hideFromStorage = () => {
+      if (window.sessionStorage.getItem(ORDER_FROM_PRODUCT_KEY) === '1') {
+        setHidePackages(true);
+        window.sessionStorage.removeItem(ORDER_FROM_PRODUCT_KEY);
+      }
+    };
+    hideFromStorage();
+    const onOrderFromProduct = () => setHidePackages(true);
+    window.addEventListener(ORDER_FROM_PRODUCT_EVENT, onOrderFromProduct);
+    return () => window.removeEventListener(ORDER_FROM_PRODUCT_EVENT, onOrderFromProduct);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -148,29 +166,42 @@ const OrderSection = () => {
                   placeholder="গ্রাম/বাড়ি নং, রোড, জেলা ও থানা উল্লেখ করুন"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">প্যাকেজ সিলেক্ট করুন:</label>
-                <div className="grid grid-cols-2 gap-4">
-                  {PACKAGES.map((pkg) => (
-                    <label
-                      key={pkg.id}
-                      className={`relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 cursor-pointer transition-all ${formData.package === String(pkg.id) ? 'border-green-600 bg-green-50' : 'border-gray-200 bg-white hover:border-green-200'}`}
-                    >
-                      <input
-                        type="radio"
-                        name="package"
-                        value={pkg.id}
-                        checked={formData.package === String(pkg.id)}
-                        onChange={(e) => setFormData({ ...formData, package: e.target.value })}
-                        className="sr-only"
-                      />
-                      <PackageIcon className={formData.package === String(pkg.id) ? 'text-green-600' : 'text-gray-400'} size={24} />
-                      <span className="font-bold text-gray-900 mt-2">৳{pkg.price}</span>
-                      <span className="text-xs text-gray-500 text-center mt-1">{pkg.title}</span>
-                    </label>
-                  ))}
+              {!hidePackages ? (
+                <div id="order-packages">
+                  <label className="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">প্যাকেজ সিলেক্ট করুন:</label>
+                  <div className="grid grid-cols-2 gap-4">
+                    {PACKAGES.map((pkg) => (
+                      <label
+                        key={pkg.id}
+                        className={`relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 cursor-pointer transition-all ${formData.package === String(pkg.id) ? 'border-green-600 bg-green-50' : 'border-gray-200 bg-white hover:border-green-200'}`}
+                      >
+                        <input
+                          type="radio"
+                          name="package"
+                          value={pkg.id}
+                          checked={formData.package === String(pkg.id)}
+                          onChange={(e) => setFormData({ ...formData, package: e.target.value })}
+                          className="sr-only"
+                        />
+                        <PackageIcon className={formData.package === String(pkg.id) ? 'text-green-600' : 'text-gray-400'} size={24} />
+                        <span className="font-bold text-gray-900 mt-2">৳{pkg.price}</span>
+                        <span className="text-xs text-gray-500 text-center mt-1">{pkg.title}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="mb-4">
+                  <button
+                    type="button"
+                    onClick={() => setHidePackages(false)}
+                    className="text-green-600 hover:text-green-700 font-bold text-sm flex items-center gap-2"
+                  >
+                    <PackageIcon size={18} />
+                    প্যাকেজ অফার দেখুন
+                  </button>
+                </div>
+              )}
               <button
                 disabled={isSubmitting}
                 type="submit"
