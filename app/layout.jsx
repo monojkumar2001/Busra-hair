@@ -47,6 +47,10 @@ export const metadata = {
     images: ['/images/product-1.png'],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({ children }) {
